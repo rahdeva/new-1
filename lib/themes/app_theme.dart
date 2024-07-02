@@ -4,22 +4,22 @@ import '/resources/resources.dart';
 class AppTheme {
   static ThemeData buildThemeData(bool darkMode, BuildContext context) {
     return ThemeData(
-      primaryColor: AppColors.blue,
+      primaryColor: AppColors.black,
       brightness: Brightness.light,
       scaffoldBackgroundColor: AppColors.white,
       highlightColor: Colors.transparent,
       splashColor: Colors.transparent,
       appBarTheme: lightAppBar(),
-      fontFamily: 'DMSans',
+      fontFamily: 'Georama',
       floatingActionButtonTheme: const FloatingActionButtonThemeData(),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.blue,
+          backgroundColor: AppColors.black,
         )
       ),
       radioTheme: RadioThemeData(
         fillColor: MaterialStateColor.resolveWith(
-          (states) => AppColors.blue
+          (states) => AppColors.black
         ),
       ),
       bottomNavigationBarTheme: lightNavigation(),

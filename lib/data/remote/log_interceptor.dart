@@ -1,11 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import '/data/remote/dio.dart';
-import '/data/remote/endpoint.dart';
-import '/feature/auth/auth_controller.dart';
 import '/model/api_error.dart';
-import '/model/login_response.dart';
-import '/model/user.dart';
 import '/resources/resources.dart';
 import '/utills/helper/static_value_helper.dart';
 import '/utills/widget/snackbar/snackbar_widget.dart';
@@ -19,10 +14,6 @@ class APILogInterceptor extends InterceptorsWrapper {
     debugPrint('Message: ${err.error}');
     debugPrint('<-- END HTTP');
     APIError apiError = APIError.fromJson(err.response?.data);
-    if (err.response?.statusCode == 401) {
-      debugPrint('<-- Refresh Token');
-      refreshToken();
-    }
     if (err.response?.statusCode != 401) {
       SnackbarWidget.defaultSnackbar(
         icon: const Icon(
@@ -60,35 +51,6 @@ class APILogInterceptor extends InterceptorsWrapper {
     debugPrint(response.statusCode.toString());
     debugPrint("response.statusCode.toString()");
     // debugPrint(response.data.toString());
-    if (response.statusCode == 401) {
-      debugPrint('<-- Refresh Token');
-      refreshToken();
-    }
     return super.onResponse(response, handler);
-  }
-
-  void refreshToken() async {
-    final dio = await AppDio().getDIO();
-    LoginResponse? loginResponse;
-    User? currentUser = AuthController.find.user;
-
-    try {
-      final refreshTokenData = await dio.post(
-        BaseUrl.refreshToken,
-        data: {
-          "refresh_token": currentUser!.refreshToken,
-        }
-      );
-      debugPrint('Refresh Token Info: ${refreshTokenData.data}');
-      loginResponse = LoginResponse.fromJson(refreshTokenData.data);
-      await AuthController.find.saveAuthData(
-        user: loginResponse.data!,
-        token: loginResponse.data!.accessToken ?? '',
-      );
-      AuthController.find.setAuth();
-    } on DioError catch (error) {
-      debugPrint(error.toString());
-      await AuthController.find.signOut();
-    }
   }
 }

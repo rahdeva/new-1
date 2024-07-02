@@ -12,57 +12,35 @@ import 'package:flutter/widgets.dart';
 class $LibGen {
   const $LibGen();
 
+  /// Directory path: lib/resources
   $LibResourcesGen get resources => const $LibResourcesGen();
 }
 
 class $LibResourcesGen {
   const $LibResourcesGen();
 
+  /// Directory path: lib/resources/images
   $LibResourcesImagesGen get images => const $LibResourcesImagesGen();
 }
 
 class $LibResourcesImagesGen {
   const $LibResourcesImagesGen();
 
-  /// File path: lib/resources/images/empty_state_code.png
-  AssetGenImage get emptyStateCode =>
-      const AssetGenImage('lib/resources/images/empty_state_code.png');
+  /// File path: lib/resources/images/ill_sekar_agung.png
+  AssetGenImage get illSekarAgung =>
+      const AssetGenImage('lib/resources/images/ill_sekar_agung.png');
 
-  /// File path: lib/resources/images/ic_activity_active.png
-  AssetGenImage get icActivityActive =>
-      const AssetGenImage('lib/resources/images/ic_activity_active.png');
+  /// File path: lib/resources/images/ill_sekar_alit.png
+  AssetGenImage get illSekarAlit =>
+      const AssetGenImage('lib/resources/images/ill_sekar_alit.png');
 
-  /// File path: lib/resources/images/ic_activity_unactive.png
-  AssetGenImage get icActivityUnactive =>
-      const AssetGenImage('lib/resources/images/ic_activity_unactive.png');
+  /// File path: lib/resources/images/ill_sekar_madia.png
+  AssetGenImage get illSekarMadia =>
+      const AssetGenImage('lib/resources/images/ill_sekar_madia.png');
 
-  /// File path: lib/resources/images/ic_home_active.png
-  AssetGenImage get icHomeActive =>
-      const AssetGenImage('lib/resources/images/ic_home_active.png');
-
-  /// File path: lib/resources/images/ic_home_unactive.png
-  AssetGenImage get icHomeUnactive =>
-      const AssetGenImage('lib/resources/images/ic_home_unactive.png');
-
-  /// File path: lib/resources/images/ic_logo_suitcore_main.png
-  AssetGenImage get icLogoSuitcoreMain =>
-      const AssetGenImage('lib/resources/images/ic_logo_suitcore_main.png');
-
-  /// File path: lib/resources/images/ic_notif_active.png
-  AssetGenImage get icNotifActive =>
-      const AssetGenImage('lib/resources/images/ic_notif_active.png');
-
-  /// File path: lib/resources/images/ic_notif_unactive.png
-  AssetGenImage get icNotifUnactive =>
-      const AssetGenImage('lib/resources/images/ic_notif_unactive.png');
-
-  /// File path: lib/resources/images/ic_profile_active.png
-  AssetGenImage get icProfileActive =>
-      const AssetGenImage('lib/resources/images/ic_profile_active.png');
-
-  /// File path: lib/resources/images/ic_profile_unactive.png
-  AssetGenImage get icProfileUnactive =>
-      const AssetGenImage('lib/resources/images/ic_profile_unactive.png');
+  /// File path: lib/resources/images/ill_sekar_rare.png
+  AssetGenImage get illSekarRare =>
+      const AssetGenImage('lib/resources/images/ill_sekar_rare.png');
 
   /// File path: lib/resources/images/img_empty.png
   AssetGenImage get imgEmpty =>
@@ -72,24 +50,33 @@ class $LibResourcesImagesGen {
   AssetGenImage get imgError =>
       const AssetGenImage('lib/resources/images/img_error.png');
 
+  /// File path: lib/resources/images/img_introduction.png
+  AssetGenImage get imgIntroduction =>
+      const AssetGenImage('lib/resources/images/img_introduction.png');
+
+  /// File path: lib/resources/images/img_logo.png
+  AssetGenImage get imgLogo =>
+      const AssetGenImage('lib/resources/images/img_logo.png');
+
+  /// File path: lib/resources/images/launcher_icon.png
+  AssetGenImage get launcherIcon =>
+      const AssetGenImage('lib/resources/images/launcher_icon.png');
+
   /// File path: lib/resources/images/user_placeholder.png
   AssetGenImage get userPlaceholder =>
       const AssetGenImage('lib/resources/images/user_placeholder.png');
 
   /// List of all assets
   List<AssetGenImage> get values => [
-        emptyStateCode,
-        icActivityActive,
-        icActivityUnactive,
-        icHomeActive,
-        icHomeUnactive,
-        icLogoSuitcoreMain,
-        icNotifActive,
-        icNotifUnactive,
-        icProfileActive,
-        icProfileUnactive,
+        illSekarAgung,
+        illSekarAlit,
+        illSekarMadia,
+        illSekarRare,
         imgEmpty,
         imgError,
+        imgIntroduction,
+        imgLogo,
+        launcherIcon,
         userPlaceholder
       ];
 }
@@ -101,9 +88,16 @@ class Assets {
 }
 
 class AssetGenImage {
-  const AssetGenImage(this._assetName);
+  const AssetGenImage(
+    this._assetName, {
+    this.size,
+    this.flavors = const {},
+  });
 
   final String _assetName;
+
+  final Size? size;
+  final Set<String> flavors;
 
   Image image({
     Key? key,
@@ -158,7 +152,16 @@ class AssetGenImage {
     );
   }
 
-  ImageProvider provider() => AssetImage(_assetName);
+  ImageProvider provider({
+    AssetBundle? bundle,
+    String? package,
+  }) {
+    return AssetImage(
+      _assetName,
+      bundle: bundle,
+      package: package,
+    );
+  }
 
   String get path => _assetName;
 

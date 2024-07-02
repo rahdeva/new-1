@@ -8,8 +8,12 @@ final AppImages = asset.Assets.lib.resources.images;
 class AppColors {
   static const white = Color(0xFFFFFFFF);
   static const black = Color(0xFF000000);
+  static const red = Color(0xFFEF4073);
+  static const yellow = Color(0xFFEBB707);
+  static const green = Color(0xFF59B100);
+  static const purple = Color(0xFF9758FA);
+  
   static const blue = Color(0xFF007AFF);
-  static const red = Color(0xFFFF3B30);
   static const iconText = Color(0xFF354052);
   static const iconBG = Color(0xFFECF6FD);
   static const purple500 = Color(0xFF805AD5);
