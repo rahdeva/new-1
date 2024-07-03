@@ -13,6 +13,7 @@ class PrimaryButtonWidget extends StatelessWidget {
     this.padding, 
     this.customColors, 
     this.height,
+    this.style,
     this.smallText = false,
   });
 
@@ -23,6 +24,7 @@ class PrimaryButtonWidget extends StatelessWidget {
   final double? borderRadius;
   final double? padding;
   final bool smallText;
+  final TextStyle? style;
   final EdgeInsetsGeometry? margin;
   final Function() onPressed;
 
@@ -54,7 +56,7 @@ class PrimaryButtonWidget extends StatelessWidget {
                 color: AppColors.white,
                 fontWeight: FontWeight.w600
               )
-            : Theme.of(context).textTheme.bodyLarge!.copyWith(
+            : style ?? Theme.of(context).textTheme.bodyLarge!.copyWith(
                 color: AppColors.white,
                 fontWeight: FontWeight.w600
               )

@@ -54,6 +54,10 @@ class $LibResourcesImagesGen {
   AssetGenImage get imgIntroduction =>
       const AssetGenImage('lib/resources/images/img_introduction.png');
 
+  /// File path: lib/resources/images/img_list_divider.png
+  AssetGenImage get imgListDivider =>
+      const AssetGenImage('lib/resources/images/img_list_divider.png');
+
   /// File path: lib/resources/images/img_logo.png
   AssetGenImage get imgLogo =>
       const AssetGenImage('lib/resources/images/img_logo.png');
@@ -75,6 +79,7 @@ class $LibResourcesImagesGen {
         imgEmpty,
         imgError,
         imgIntroduction,
+        imgListDivider,
         imgLogo,
         launcherIcon,
         userPlaceholder
