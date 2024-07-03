@@ -12,6 +12,7 @@ class AppColors {
   static const yellow = Color(0xFFEBB707);
   static const green = Color(0xFF59B100);
   static const purple = Color(0xFF9758FA);
+  static const grey = Color(0xFF9F9F9F);
   
   static const blue = Color(0xFF007AFF);
   static const iconText = Color(0xFF354052);

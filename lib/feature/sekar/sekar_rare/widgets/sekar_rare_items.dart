@@ -28,7 +28,10 @@ class SekarRareListItem extends StatelessWidget {
           const SizedBox(height: 8),
           InkWell(
             onTap: (){
-              Get.toNamed(PageName.INFO_DETAIL);
+              Get.toNamed(
+                PageName.INFO_DETAIL,
+                arguments: mData
+              );
             },
             child: Row(
               children: [
@@ -56,7 +59,10 @@ class SekarRareListItem extends StatelessWidget {
           const SizedBox(height: 24),
           InkWell(
             onTap: (){
-              Get.toNamed(PageName.PLAYER);
+              Get.toNamed(
+                PageName.PLAYER,
+                arguments: mData
+              );
             },
             child: Row(
               children: [

@@ -4,6 +4,8 @@
 
 import 'dart:convert';
 
+import 'package:tembang_bali/model/lyric.dart';
+
 SekarRareResponse sekarRareResponseFromJson(String str) => SekarRareResponse.fromJson(json.decode(str));
 
 String sekarRareResponseToJson(SekarRareResponse data) => json.encode(data.toJson());
@@ -52,8 +54,9 @@ class SekarRare {
     String? history;
     String? musicData;
     String? musicAdditonal;
-    // String? lyrics;
+    List<Lyric>? lyrics;
     String? lyricString;
+    String? image;
 
     SekarRare({
         this.id,
@@ -67,8 +70,9 @@ class SekarRare {
         this.history,
         this.musicData,
         this.musicAdditonal,
-        // this.lyrics,
+        this.lyrics,
         this.lyricString,
+        this.image,
     });
 
     factory SekarRare.fromJson(Map<String, dynamic> json) => SekarRare(
@@ -83,8 +87,9 @@ class SekarRare {
         history: json["history"],
         musicData: json["music_data"],
         musicAdditonal: json["music_additonal"],
-        // lyrics: json["lyrics"],
+        lyrics: json["lyrics"] == null ? [] : List<Lyric>.from(json["lyrics"]!.map((x) => Lyric.fromJson(x))),
         lyricString: json["lyric_string"],
+        image: json["image"],
     );
 
     Map<String, dynamic> toJson() => {
@@ -99,7 +104,8 @@ class SekarRare {
         "history": history,
         "music_data": musicData,
         "music_additonal": musicAdditonal,
-        // "lyrics": lyrics,
+        "lyrics": lyrics == null ? [] : List<dynamic>.from(lyrics!.map((x) => x.toJson())),
         "lyric_string": lyricString,
+        "image": image,
     };
 }
