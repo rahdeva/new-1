@@ -5,6 +5,7 @@ class Environments {
   static const String PRODUCTION = 'https://jdi.jamkridabali.co.id/jdi/api/v1';
   // static const String DEV = 'http://52.139.153.135:4002/jdi/api/v1';
   static const String DEV = 'http://188.166.210.146:4009/jdi/api/v1';
+  static const String POCKETBASE_DEV = 'https://tembang.fuwuna.tech';
 
   static String currentEnvironments = Environments.DEV;
 

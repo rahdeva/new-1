@@ -8,4 +8,5 @@ class PageName {
   static const SEKAR_MADIA = "/sekar_madia";
   static const SEKAR_AGUNG = "/sekar_agung";
   static const INFO_DETAIL = "/info_detail";
+  static const PLAYER = "/player";
 }
