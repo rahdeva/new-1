@@ -22,7 +22,8 @@ class SekarMadiaListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ExpansionTileWidget(
-      title: mData.title ?? "-", 
+      title: mData.title ?? "-",
+      withIcon: true,
       content: Column(
         children: [
           const SizedBox(height: 8),
@@ -36,19 +37,19 @@ class SekarMadiaListItem extends StatelessWidget {
             child: Row(
               children: [
                 const CircleAvatar(
-                  radius: 15,
+                  radius: 10,
                   backgroundColor: AppColors.black,
                   child: HeroIcon(
                     HeroIcons.questionMarkCircle,
                     style: HeroIconStyle.outline, // Outlined icons are used by default.
                     color: Colors.white,
-                    size: 20,
+                    size: 15,
                   ),
                 ),
-                const SizedBox(width: 20),
+                const SizedBox(width: 12),
                 Text(
                   "Sejarah dan Aturan",
-                  style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
                     color: AppColors.black,
                     fontWeight: FontWeight.w500
                   ),
@@ -67,19 +68,19 @@ class SekarMadiaListItem extends StatelessWidget {
             child: Row(
               children: [
                 const CircleAvatar(
-                  radius: 15,
+                  radius: 10,
                   backgroundColor: AppColors.black,
                   child: HeroIcon(
                     HeroIcons.playCircle,
                     style: HeroIconStyle.outline, // Outlined icons are used by default.
                     color: Colors.white,
-                    size: 20,
+                    size: 15,
                   ),
                 ),
-                const SizedBox(width: 20),
+                const SizedBox(width: 12),
                 Text(
                   "Audio Tembang",
-                  style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
                     color: AppColors.black,
                     fontWeight: FontWeight.w500
                   ),

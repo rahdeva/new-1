@@ -35,7 +35,13 @@ class SekarMadiaPage extends StatelessWidget {
                                 ),
                             ],
                           )
-                        : (controller.dataList.isEmpty)
+                        : (
+                            controller.dataListDewaYadnya.isEmpty &&
+                            controller.dataListBhutaYadnya.isEmpty &&
+                            controller.dataListManusaYadnya.isEmpty &&
+                            controller.dataListRsiYadnya.isEmpty &&
+                            controller.dataListPitraYadnya.isEmpty
+                          )
                           ? const EmptyListWidget()
                           : Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
