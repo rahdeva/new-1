@@ -1,6 +1,7 @@
 // ignore_for_file: constant_identifier_names
 
 class PageName {
+  static const SPLASH = "/splash";
   static const INTRODUCTION = "/introduction";
   static const DASHBOARD = "/dashboard";
   static const SEKAR_RARE = "/sekar_rare";

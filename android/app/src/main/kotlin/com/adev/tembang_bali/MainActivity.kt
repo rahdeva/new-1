@@ -1,4 +1,4 @@
-package com.example.tembang_bali
+package com.adev.tembang_bali
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -17,11 +17,16 @@ import 'package:tembang_bali/feature/sekar/sekar_madia/sekar_madia_binding.dart'
 import 'package:tembang_bali/feature/sekar/sekar_madia/sekar_madia_page.dart';
 import 'package:tembang_bali/feature/sekar/sekar_rare/sekar_rare_binding.dart';
 import 'package:tembang_bali/feature/sekar/sekar_rare/sekar_rare_page.dart';
+import 'package:tembang_bali/feature/splash/splash_screen.dart';
 
 import 'page_names.dart';
 
 class PageRoutes {
   static final pages = [
+    GetPage(
+      name: PageName.SPLASH,
+      page: () => const SplashScreen(),
+    ),
     GetPage(
       name: PageName.INTRODUCTION,
       page: () => const IntroductionPage(),
