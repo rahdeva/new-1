@@ -44,7 +44,7 @@ class SekarAlitPage extends StatelessWidget {
                               Container(
                                 margin: const EdgeInsets.symmetric(horizontal: 24),
                                 child: Text(
-                                  "Sekar Rare",
+                                  "Sekar Alit",
                                   style: Theme.of(context).textTheme.displayLarge!.copyWith(
                                     fontSize: 30,
                                     color: AppColors.black,

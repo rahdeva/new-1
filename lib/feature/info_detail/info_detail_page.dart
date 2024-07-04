@@ -59,7 +59,7 @@ class InfoDetailPage extends StatelessWidget {
                       color: AppColors.black,
                       fontWeight: FontWeight.w700
                     ),
-                    textAlign: TextAlign.center,
+                    textAlign: TextAlign.start,
                   ),
                 ),
                 const SizedBox(height: 20),

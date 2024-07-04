@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tembang_bali/feature/sekar/sekar_madia/sekar_madia_controller.dart';
-import 'package:tembang_bali/routes/page_names.dart';
-import '/utills/widget/button/primary_button.dart';
+import 'package:tembang_bali/feature/sekar/sekar_madia/widgets/sekar_madia_list_builder.dart';
+import 'package:tembang_bali/utills/widget/button/back_button.dart';
+import 'package:tembang_bali/utills/widget/empty_list_widget.dart';
+import 'package:tembang_bali/utills/widget/shimmer/shimmer_widget.dart';
 import '/resources/resources.dart';
 
 class SekarMadiaPage extends StatelessWidget {
@@ -14,47 +16,52 @@ class SekarMadiaPage extends StatelessWidget {
       child: Scaffold(
         body: GetBuilder<SekarMadiaController>(
           builder: (controller) {
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  const SizedBox(height: 40),
-                  Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 24),
-                    child: Text(
-                      "Selamat Datang",
-                      style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                        fontSize: 32,
-                        color: AppColors.black,
-                        fontWeight: FontWeight.w700
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                const SizedBox(height: 20),
+                const BackButtonWidget(),
+                Expanded(
+                  child: Stack(
+                    children: [
+                      (controller.isLoading)
+                        ? Column(
+                            children: [
+                              const SizedBox(height: 40),
+                              Container(
+                                  margin: const EdgeInsets.symmetric(horizontal: 24),
+                                  child: ShimmerWidget.simpleShimmer()
+                                ),
+                            ],
+                          )
+                        : (controller.dataList.isEmpty)
+                          ? const EmptyListWidget()
+                          : Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const SizedBox(height: 40),
+                              Container(
+                                margin: const EdgeInsets.symmetric(horizontal: 24),
+                                child: Text(
+                                  "Sekar Madia",
+                                  style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                                    fontSize: 30,
+                                    color: AppColors.black,
+                                    fontWeight: FontWeight.w700
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(height: 24),
+                              ListSekarMadiaBuilder(
+                                controller: controller
+                              ),
+                            ],
+                          ),
+                    ],
                   ),
-                  const SizedBox(height: 50),
-                  Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 24),
-                    child: AppImages.imgIntroduction.image(
-                      width: Get.width,
-                      fit: BoxFit.fitWidth
-                    ),
-                  ),
-                  const SizedBox(height: 50),
-                  PrimaryButtonWidget(
-                    buttonText: "Masuk ke Aplikasi",
-                    borderRadius: 50,
-                    customColors: Colors.black,
-                    style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                      color: AppColors.white,
-                      fontWeight: FontWeight.w500
-                    ),
-                    margin: const EdgeInsets.symmetric(horizontal: 24),
-                    onPressed: () async {
-                      Get.offAllNamed(PageName.DASHBOARD);
-                    },
-                  ),
-                ],
-              ),
+                ),
+              ],
             );
           },
         ),
@@ -62,4 +69,3 @@ class SekarMadiaPage extends StatelessWidget {
     );
   }
 }
-

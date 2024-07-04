@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:tembang_bali/feature/sekar/sekar_alit/sekar_alit_controller.dart';
-import 'package:tembang_bali/feature/sekar/sekar_alit/widgets/sekar_alit_items.dart';
+import 'package:tembang_bali/feature/sekar/sekar_madia/sekar_madia_controller.dart';
+import 'package:tembang_bali/feature/sekar/sekar_madia/widgets/sekar_madia_items.dart';
 import 'package:tembang_bali/resources/resources.dart';
 
-class ListSekarAlitBuilder extends StatelessWidget {
-  const ListSekarAlitBuilder({
+class ListSekarMadiaBuilder extends StatelessWidget {
+  const ListSekarMadiaBuilder({
     Key? key, 
     required this.controller, 
   }) : super(key: key);
 
-  final SekarAlitController controller;
+  final SekarMadiaController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class ListSekarAlitBuilder extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SekarAlitListItem(
+            SekarMadiaListItem(
               index: index,
               controller: controller,
               mData: controller.dataList[index],
