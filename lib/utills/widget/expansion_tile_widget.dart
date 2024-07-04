@@ -49,7 +49,8 @@ class ExpansionTileWidget extends StatelessWidget {
                 : const SizedBox(),
                 Text(
                   title,
-                  style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                  style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                    fontSize: withIcon ? 16 : 20,
                     color: AppColors.black,
                     fontWeight: withIcon ? FontWeight.w500 : FontWeight.w700
                   ),

@@ -4,17 +4,17 @@ import 'package:get/get.dart';
 import 'package:heroicons/heroicons.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:sizer/sizer.dart';
-import 'package:tembang_bali/feature/player/player_controller.dart';
+import 'package:tembang_bali/feature/karaoke/karaoke_controller.dart';
 import 'package:tembang_bali/feature/player/widgets/bottom_player_widget.dart';
 import '/resources/resources.dart';
 
-class PlayerPage extends StatelessWidget {
-  const PlayerPage({super.key});
+class KaraokePage extends StatelessWidget {
+  const KaraokePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: GetBuilder<PlayerController>(
+      child: GetBuilder<KaraokeController>(
         builder: (controller){
           return Scaffold(
             body: Column(
@@ -91,12 +91,12 @@ class PlayerPage extends StatelessWidget {
                             padding: const EdgeInsets.only(bottom: 16.0),
                             child: Text(
                               controller.lyrics[index].words,
-                              style: controller.textSize == TextSize.medium
+                              style: controller.textSize == TextSizeKaraoke.medium
                               ? Theme.of(context).textTheme.displayMedium!.copyWith(
                                   color: isLyricAfterCurrentTime ? Colors.grey : Colors.black,
                                   fontWeight: FontWeight.w500
                                 )
-                              : controller.textSize == TextSize.big
+                              : controller.textSize == TextSizeKaraoke.big
                                 ? Theme.of(context).textTheme.displayLarge!.copyWith(
                                     fontSize: 28,
                                     color: isLyricAfterCurrentTime ? Colors.grey : Colors.black,

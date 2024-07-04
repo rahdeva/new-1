@@ -5,6 +5,8 @@ import 'package:tembang_bali/feature/info_detail/info_detail_binding.dart';
 import 'package:tembang_bali/feature/info_detail/info_detail_page.dart';
 import 'package:tembang_bali/feature/introduction/introduction_binding.dart';
 import 'package:tembang_bali/feature/introduction/introduction_page.dart';
+import 'package:tembang_bali/feature/karaoke/karaoke_binding.dart';
+import 'package:tembang_bali/feature/karaoke/karaoke_page.dart';
 import 'package:tembang_bali/feature/player/player_binding.dart';
 import 'package:tembang_bali/feature/player/player_page.dart';
 import 'package:tembang_bali/feature/sekar/sekar_agung/sekar_agung_binding.dart';
@@ -59,6 +61,11 @@ class PageRoutes {
       name: PageName.PLAYER,
       page: () => const PlayerPage(),
       binding: PlayerBinding(),
+    ),
+    GetPage(
+      name: PageName.KARAOKE,
+      page: () => const KaraokePage(),
+      binding: KaraokeBinding(),
     ),
   ];
 }

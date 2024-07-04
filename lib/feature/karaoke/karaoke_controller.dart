@@ -7,20 +7,20 @@ import 'package:tembang_bali/data/remote/endpoint.dart';
 import 'package:tembang_bali/model/lyric.dart';
 import 'package:tembang_bali/model/song.dart';
 
-enum TextSize{
+enum TextSizeKaraoke {
   small,
   medium,
   big,
 }
 
-class PlayerController extends GetxController {
+class KaraokeController extends GetxController {
   final audioPlayer = AudioPlayer();
   bool isPlaying = false;
   bool isLoop = false;
   String url = "";
   Duration duration = Duration.zero;
   Duration position = Duration.zero;
-  TextSize textSize = TextSize.medium;
+  TextSizeKaraoke textSize = TextSizeKaraoke.medium;
   
   // ignore: prefer_typing_uninitialized_variables
   Song? songData;
@@ -38,7 +38,7 @@ class PlayerController extends GetxController {
     url = Environments.pocketBaseDevFiles(
       collectionId: songData!.collectionId,
       recordId: songData!.id,
-      fileName: songData!.musicData,
+      fileName: songData!.musicAdditonal,
     );
     super.onInit();
 
@@ -100,12 +100,12 @@ class PlayerController extends GetxController {
   }
 
   void setTextSize() {
-    if(textSize == TextSize.medium){
-      textSize = TextSize.big;
-    } else if(textSize == TextSize.big){
-      textSize = TextSize.small;
+    if(textSize == TextSizeKaraoke.medium){
+      textSize = TextSizeKaraoke.big;
+    } else if(textSize == TextSizeKaraoke.big){
+      textSize = TextSizeKaraoke.small;
     } else{
-      textSize = TextSize.medium;
+      textSize = TextSizeKaraoke.medium;
     }
     update();
   }
