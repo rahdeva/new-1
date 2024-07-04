@@ -4,6 +4,7 @@ import 'package:tembang_bali/model/sekar_rare.dart';
 import 'package:pocketbase/pocketbase.dart';
 
 class SekarRareController extends GetxController {
+  bool isLoading = false;
   final pb = PocketBase(Environments.POCKETBASE_DEV);
 
   List<SekarRare> dataListSekarRare = [];
@@ -15,7 +16,7 @@ class SekarRareController extends GetxController {
   }
 
   void getSekarRare() async {
-    // SekarRareResponse? sekarRareResponse;
+    isLoading = true;
     SekarRareResponse? sekarRareResponse;
 
     try {
@@ -27,10 +28,10 @@ class SekarRareController extends GetxController {
       Map<String, dynamic> jsonResult = resultList.toJson();
       sekarRareResponse = SekarRareResponse.fromJson(jsonResult);
       dataListSekarRare = sekarRareResponse.items ?? [];
-      // print(dataListSekarRare.first.toString());
     } on Exception catch (error) {
       print(error.toString());
     } 
+    isLoading = false;
     update();
   }
 
