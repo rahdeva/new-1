@@ -6,6 +6,12 @@ import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:tembang_bali/model/lyric.dart';
 import 'package:tembang_bali/model/song.dart';
 
+enum TextSize{
+  small,
+  medium,
+  big,
+}
+
 class PlayerController extends GetxController {
   final audioPlayer = AudioPlayer();
   bool isPlaying = false;
@@ -13,6 +19,7 @@ class PlayerController extends GetxController {
   String url = "https://tembang.fuwuna.tech/api/files/aqly0n339u404q8/43334var2qne4xb/y2meta_eyb_zu_irh_mi_vec6zKWbPX.irik320kbpsmusic.mp3";
   Duration duration = Duration.zero;
   Duration position = Duration.zero;
+  TextSize textSize = TextSize.medium;
   
   // ignore: prefer_typing_uninitialized_variables
   Song? songData;
@@ -75,11 +82,24 @@ class PlayerController extends GetxController {
     super.dispose();
   }
 
-  void setLoop() async {
+  void setLoop() {
     if(isLoop){
       audioPlayer.setReleaseMode(ReleaseMode.release);
+      isLoop = false;
     } else{
       audioPlayer.setReleaseMode(ReleaseMode.loop);
+      isLoop = true;
+    }
+    update();
+  }
+
+  void setTextSize() {
+    if(textSize == TextSize.medium){
+      textSize = TextSize.big;
+    } else if(textSize == TextSize.big){
+      textSize = TextSize.small;
+    } else{
+      textSize = TextSize.medium;
     }
     update();
   }

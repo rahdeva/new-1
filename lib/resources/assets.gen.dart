@@ -26,6 +26,10 @@ class $LibResourcesGen {
 class $LibResourcesImagesGen {
   const $LibResourcesImagesGen();
 
+  /// File path: lib/resources/images/ic_title_player.png
+  AssetGenImage get icTitlePlayer =>
+      const AssetGenImage('lib/resources/images/ic_title_player.png');
+
   /// File path: lib/resources/images/ill_empty.png
   AssetGenImage get illEmpty =>
       const AssetGenImage('lib/resources/images/ill_empty.png');
@@ -76,6 +80,7 @@ class $LibResourcesImagesGen {
 
   /// List of all assets
   List<AssetGenImage> get values => [
+        icTitlePlayer,
         illEmpty,
         illSekarAgung,
         illSekarAlit,

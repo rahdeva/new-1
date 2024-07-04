@@ -51,20 +51,27 @@ class PlayerPage extends StatelessWidget {
                 const SizedBox(height: 40),
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 24),
-                  child: Text(
-                    "Selamat Datang",
-                    style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                      fontSize: 32,
-                      color: AppColors.black,
-                      fontWeight: FontWeight.w700
-                    ),
-                    textAlign: TextAlign.center,
+                  child: Row(
+                    children: [
+                      AppImages.icTitlePlayer.image(),
+                      Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 24),
+                        child: Text(
+                          "${controller.songData?.title ?? "-"} Audio",
+                          style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                            color: AppColors.black,
+                            fontWeight: FontWeight.w600
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                const SizedBox(height: 50),
+                const SizedBox(height: 24),
                 Container(
-                  height: 400,
-                  margin: const EdgeInsets.symmetric(horizontal: 24),
+                  height: 450,
+                  margin: const EdgeInsets.fromLTRB(24, 0, 24, 0),
                   child: StreamBuilder<Duration>(
                     stream: controller.audioPlayer.onPositionChanged,
                     builder: (context, snapshot) {
@@ -79,11 +86,21 @@ class PlayerPage extends StatelessWidget {
                             padding: const EdgeInsets.only(bottom: 16.0),
                             child: Text(
                               controller.lyrics[index].words,
-                              style: TextStyle(
-                                color: isLyricAfterCurrentTime ? Colors.grey : Colors.black,
-                                fontSize: 26,
-                                fontWeight: FontWeight.bold,
-                              ),
+                              style: controller.textSize == TextSize.medium
+                              ? Theme.of(context).textTheme.displayMedium!.copyWith(
+                                  color: isLyricAfterCurrentTime ? Colors.grey : Colors.black,
+                                  fontWeight: FontWeight.w500
+                                )
+                              : controller.textSize == TextSize.big
+                                ? Theme.of(context).textTheme.displayLarge!.copyWith(
+                                    fontSize: 28,
+                                    color: isLyricAfterCurrentTime ? Colors.grey : Colors.black,
+                                    fontWeight: FontWeight.w500
+                                  )
+                                : Theme.of(context).textTheme.headlineMedium!.copyWith(
+                                    color: isLyricAfterCurrentTime ? Colors.grey : Colors.black,
+                                    fontWeight: FontWeight.w500
+                                  )
                             ),
                           );
                         },
@@ -141,27 +158,59 @@ class PlayerPage extends StatelessWidget {
                         ],
                       ),
                     ),
-                    CircleAvatar(
-                      radius: 35,
-                      backgroundColor: AppColors.black,
-                      child: IconButton(
-                        icon: HeroIcon(
-                          controller.isPlaying ? HeroIcons.stop : HeroIcons.play,
-                          style: HeroIconStyle.solid,
-                          color: Colors.white,
-                          size: 35,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        InkWell(
+                          onTap: () => controller.setTextSize(),
+                          child: CircleAvatar(
+                            radius: 24,
+                            backgroundColor: AppColors.white,
+                            child: Text(
+                              "Aa",
+                              style: Theme.of(context).textTheme.headlineMedium!.copyWith(
+                                color: AppColors.grey,
+                                fontWeight: FontWeight.w600
+                              ),
+                            ),
+                          ),
                         ),
-                        iconSize: 35,
-                        onPressed: () async {
-                          if(controller.isPlaying){
-                            await controller.audioPlayer.pause();
-                          } else{
-                            await controller.audioPlayer.play(
-                              UrlSource(controller.url)
-                            );
-                          }
-                        },
-                      ),
+                        CircleAvatar(
+                          radius: 35,
+                          backgroundColor: AppColors.black,
+                          child: IconButton(
+                            icon: HeroIcon(
+                              controller.isPlaying ? HeroIcons.stop : HeroIcons.play,
+                              style: HeroIconStyle.solid,
+                              color: Colors.white,
+                              size: 35,
+                            ),
+                            iconSize: 35,
+                            onPressed: () async {
+                              if(controller.isPlaying){
+                                await controller.audioPlayer.pause();
+                              } else{
+                                await controller.audioPlayer.play(
+                                  UrlSource(controller.url)
+                                );
+                              }
+                            },
+                          ),
+                        ),
+                        InkWell(
+                          onTap: () => controller.setLoop(),
+                          child: CircleAvatar(
+                            radius: 24,
+                            backgroundColor: AppColors.white,
+                            child: HeroIcon(
+                              HeroIcons.arrowPath,
+                              style: HeroIconStyle.solid, // Outlined icons are used by default.
+                              color: controller.isLoop ? AppColors.black : AppColors.grey,
+                              size: 24,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                     const SizedBox(height: 16),
                   ],

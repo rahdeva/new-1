@@ -47,7 +47,7 @@ class SekarAgungListItem extends StatelessWidget {
                 ),
                 const SizedBox(width: 20),
                 Text(
-                  "Sejarah",
+                  "Sejarah dan Aturan",
                   style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                     color: AppColors.black,
                     fontWeight: FontWeight.w500
