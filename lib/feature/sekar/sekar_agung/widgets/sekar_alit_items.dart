@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:heroicons/heroicons.dart';
-import 'package:tembang_bali/feature/sekar/sekar_agung/sekar_agung_controller.dart';
-import 'package:tembang_bali/model/sekar_agung.dart';
+import 'package:tembang_bali/feature/sekar/sekar_alit/sekar_alit_controller.dart';
+import 'package:tembang_bali/model/song.dart';
 import 'package:tembang_bali/resources/resources.dart';
 import 'package:tembang_bali/routes/page_names.dart';
 import 'package:tembang_bali/utills/widget/expansion_tile_widget.dart';
 
-class SekarAgungListItem extends StatelessWidget {
+class SekarAlitListItem extends StatelessWidget {
   final int index;
-  final SekarAgungController controller;
-  final SekarAgung mData;
+  final SekarAlitController controller;
+  final Song mData;
 
-  const SekarAgungListItem({
+  const SekarAlitListItem({
     Key? key, 
     required this.index, 
     required this.controller, 
@@ -28,7 +28,10 @@ class SekarAgungListItem extends StatelessWidget {
           const SizedBox(height: 8),
           InkWell(
             onTap: (){
-              Get.toNamed(PageName.INFO_DETAIL);
+              Get.toNamed(
+                PageName.INFO_DETAIL,
+                arguments: mData
+              );
             },
             child: Row(
               children: [
@@ -54,27 +57,35 @@ class SekarAgungListItem extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 24),
-          Row(
-            children: [
-              const CircleAvatar(
-                radius: 15,
-                backgroundColor: AppColors.black,
-                child:   HeroIcon(
-                  HeroIcons.playCircle,
-                  style: HeroIconStyle.outline, // Outlined icons are used by default.
-                  color: Colors.white,
-                  size: 20,
+          InkWell(
+            onTap: (){
+              Get.toNamed(
+                PageName.PLAYER,
+                arguments: mData
+              );
+            },
+            child: Row(
+              children: [
+                const CircleAvatar(
+                  radius: 15,
+                  backgroundColor: AppColors.black,
+                  child: HeroIcon(
+                    HeroIcons.playCircle,
+                    style: HeroIconStyle.outline, // Outlined icons are used by default.
+                    color: Colors.white,
+                    size: 20,
+                  ),
                 ),
-              ),
-              const SizedBox(width: 20),
-              Text(
-                "Audio Tembang",
-                style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                  color: AppColors.black,
-                  fontWeight: FontWeight.w500
-                ),
-              )
-            ],
+                const SizedBox(width: 20),
+                Text(
+                  "Audio Tembang",
+                  style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                    color: AppColors.black,
+                    fontWeight: FontWeight.w500
+                  ),
+                )
+              ],
+            ),
           )
         ],
       ),

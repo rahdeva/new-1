@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:tembang_bali/feature/sekar/sekar_agung/sekar_agung_controller.dart';
-import 'package:tembang_bali/feature/sekar/sekar_agung/widgets/sekar_agung_items.dart';
+import 'package:tembang_bali/feature/sekar/sekar_alit/sekar_alit_controller.dart';
+import 'package:tembang_bali/feature/sekar/sekar_alit/widgets/sekar_alit_items.dart';
 import 'package:tembang_bali/resources/resources.dart';
 
-class ListSekarAgungBuilder extends StatelessWidget {
-  const ListSekarAgungBuilder({
+class ListSekarAlitBuilder extends StatelessWidget {
+  const ListSekarAlitBuilder({
     Key? key, 
     required this.controller, 
   }) : super(key: key);
 
-  final SekarAgungController controller;
+  final SekarAlitController controller;
 
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      itemCount: controller.dataListSekarAgung.length,
+      itemCount: controller.dataList.length,
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       separatorBuilder: (context, index) {
@@ -25,13 +25,13 @@ class ListSekarAgungBuilder extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SekarAgungListItem(
+            SekarAlitListItem(
               index: index,
               controller: controller,
-              mData: controller.dataListSekarAgung[index],
+              mData: controller.dataList[index],
             ),
             Visibility(
-              visible: index != controller.dataListSekarAgung.length-1,
+              visible: index != controller.dataList.length-1,
               child: Container(
                 margin: const EdgeInsets.only(left: 40),
                 child: AppImages.imgListDivider.image(),

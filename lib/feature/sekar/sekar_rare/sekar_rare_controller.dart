@@ -1,13 +1,13 @@
 import 'package:get/get.dart';
 import 'package:tembang_bali/data/remote/endpoint.dart';
-import 'package:tembang_bali/model/sekar_rare.dart';
+import 'package:tembang_bali/model/song.dart';
 import 'package:pocketbase/pocketbase.dart';
 
 class SekarRareController extends GetxController {
   bool isLoading = false;
   final pb = PocketBase(Environments.POCKETBASE_DEV);
 
-  List<SekarRare> dataListSekarRare = [];
+  List<Song> dataList = [];
 
   @override
   void onInit() {
@@ -17,7 +17,7 @@ class SekarRareController extends GetxController {
 
   void getSekarRare() async {
     isLoading = true;
-    SekarRareResponse? sekarRareResponse;
+    SongResponse? songResponse;
 
     try {
       ResultList<RecordModel> resultList = await pb.collection('songs').getList(
@@ -26,8 +26,8 @@ class SekarRareController extends GetxController {
         filter:  'song_type = "wcxfwx0dl0941ap"',
       );
       Map<String, dynamic> jsonResult = resultList.toJson();
-      sekarRareResponse = SekarRareResponse.fromJson(jsonResult);
-      dataListSekarRare = sekarRareResponse.items ?? [];
+      songResponse = SongResponse.fromJson(jsonResult);
+      dataList = songResponse.items ?? [];
     } on Exception catch (error) {
       print(error.toString());
     } 

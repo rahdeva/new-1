@@ -1,23 +1,23 @@
 // To parse this JSON data, do
 //
-//     final sekarRareResponse = sekarRareResponseFromJson(jsonString);
+//     final songResponse = songResponseFromJson(jsonString);
 
 import 'dart:convert';
 
 import 'package:tembang_bali/model/lyric.dart';
 
-SekarRareResponse sekarRareResponseFromJson(String str) => SekarRareResponse.fromJson(json.decode(str));
+SongResponse songResponseFromJson(String str) => SongResponse.fromJson(json.decode(str));
 
-String sekarRareResponseToJson(SekarRareResponse data) => json.encode(data.toJson());
+String songResponseToJson(SongResponse data) => json.encode(data.toJson());
 
-class SekarRareResponse {
+class SongResponse {
     int? page;
     int? perPage;
     int? totalPages;
     int? totalItems;
-    List<SekarRare>? items;
+    List<Song>? items;
 
-    SekarRareResponse({
+    SongResponse({
         this.page,
         this.perPage,
         this.totalPages,
@@ -25,12 +25,12 @@ class SekarRareResponse {
         this.items,
     });
 
-    factory SekarRareResponse.fromJson(Map<String, dynamic> json) => SekarRareResponse(
+    factory SongResponse.fromJson(Map<String, dynamic> json) => SongResponse(
         page: json["page"],
         perPage: json["perPage"],
         totalPages: json["totalPages"],
         totalItems: json["totalItems"],
-        items: json["items"] == null ? [] : List<SekarRare>.from(json["items"]!.map((x) => SekarRare.fromJson(x))),
+        items: json["items"] == null ? [] : List<Song>.from(json["items"]!.map((x) => Song.fromJson(x))),
     );
 
     Map<String, dynamic> toJson() => {
@@ -42,7 +42,7 @@ class SekarRareResponse {
     };
 }
 
-class SekarRare {
+class Song {
     String? id;
     String? collectionId;
     String? collectionName;
@@ -58,7 +58,7 @@ class SekarRare {
     String? lyricString;
     String? image;
 
-    SekarRare({
+    Song({
         this.id,
         this.collectionId,
         this.collectionName,
@@ -75,7 +75,7 @@ class SekarRare {
         this.image,
     });
 
-    factory SekarRare.fromJson(Map<String, dynamic> json) => SekarRare(
+    factory Song.fromJson(Map<String, dynamic> json) => Song(
         id: json["id"],
         collectionId: json["collectionId"],
         collectionName: json["collectionName"],

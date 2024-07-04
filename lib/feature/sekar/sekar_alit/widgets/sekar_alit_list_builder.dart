@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:tembang_bali/feature/sekar/sekar_rare/sekar_rare_controller.dart';
-import 'package:tembang_bali/feature/sekar/sekar_rare/widgets/sekar_rare_items.dart';
+import 'package:tembang_bali/feature/sekar/sekar_alit/sekar_alit_controller.dart';
+import 'package:tembang_bali/feature/sekar/sekar_alit/widgets/sekar_alit_items.dart';
 import 'package:tembang_bali/resources/resources.dart';
 
-class ListSekarRareBuilder extends StatelessWidget {
-  const ListSekarRareBuilder({
+class ListSekarAlitBuilder extends StatelessWidget {
+  const ListSekarAlitBuilder({
     Key? key, 
     required this.controller, 
   }) : super(key: key);
 
-  final SekarRareController controller;
+  final SekarAlitController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class ListSekarRareBuilder extends StatelessWidget {
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SekarRareListItem(
+            SekarAlitListItem(
               index: index,
               controller: controller,
               mData: controller.dataList[index],

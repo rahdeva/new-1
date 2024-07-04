@@ -35,7 +35,7 @@ class SekarRarePage extends StatelessWidget {
                                 ),
                             ],
                           )
-                        : (controller.dataListSekarRare.isEmpty)
+                        : (controller.dataList.isEmpty)
                           ? const EmptyListWidget()
                           : Column(
                             crossAxisAlignment: CrossAxisAlignment.start,

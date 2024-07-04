@@ -4,7 +4,7 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:get/get.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:tembang_bali/model/lyric.dart';
-import 'package:tembang_bali/model/sekar_rare.dart';
+import 'package:tembang_bali/model/song.dart';
 
 class PlayerController extends GetxController {
   final audioPlayer = AudioPlayer();
@@ -15,7 +15,7 @@ class PlayerController extends GetxController {
   Duration position = Duration.zero;
   
   // ignore: prefer_typing_uninitialized_variables
-  SekarRare? songData;
+  Song? songData;
 
   List<Lyric> lyrics = [];
   final ItemScrollController itemScrollController = ItemScrollController();

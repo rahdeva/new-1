@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
-import 'package:tembang_bali/model/sekar_rare.dart';
+import 'package:tembang_bali/model/song.dart';
 
 class InfoDetailController extends GetxController {
-  SekarRare? songData;
+  Song? songData;
 
   @override
   void onInit() {
