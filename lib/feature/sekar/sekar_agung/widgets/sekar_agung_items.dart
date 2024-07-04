@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:heroicons/heroicons.dart';
-import 'package:tembang_bali/feature/sekar/sekar_alit/sekar_alit_controller.dart';
+import 'package:tembang_bali/feature/sekar/sekar_agung/sekar_agung_controller.dart';
 import 'package:tembang_bali/model/song.dart';
 import 'package:tembang_bali/resources/resources.dart';
 import 'package:tembang_bali/routes/page_names.dart';
 import 'package:tembang_bali/utills/widget/expansion_tile_widget.dart';
 
-class SekarAlitListItem extends StatelessWidget {
+class SekarAgungListItem extends StatelessWidget {
   final int index;
-  final SekarAlitController controller;
+  final SekarAgungController controller;
   final Song mData;
 
-  const SekarAlitListItem({
+  const SekarAgungListItem({
     Key? key, 
     required this.index, 
     required this.controller, 
