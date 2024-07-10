@@ -37,26 +37,28 @@ class SekarRarePage extends StatelessWidget {
                           )
                         : (controller.dataList.isEmpty)
                           ? const EmptyListWidget()
-                          : Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const SizedBox(height: 40),
-                              Container(
-                                margin: const EdgeInsets.symmetric(horizontal: 24),
-                                child: Text(
-                                  "Sekar Rare",
-                                  style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                                    fontSize: 30,
-                                    color: AppColors.black,
-                                    fontWeight: FontWeight.w700
+                          : SingleChildScrollView(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const SizedBox(height: 40),
+                                Container(
+                                  margin: const EdgeInsets.symmetric(horizontal: 24),
+                                  child: Text(
+                                    "Sekar Rare",
+                                    style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                                      fontSize: 30,
+                                      color: AppColors.black,
+                                      fontWeight: FontWeight.w700
+                                    ),
                                   ),
                                 ),
-                              ),
-                              const SizedBox(height: 24),
-                              ListSekarRareBuilder(
-                                controller: controller
-                              ),
-                            ],
+                                const SizedBox(height: 24),
+                                ListSekarRareBuilder(
+                                  controller: controller
+                                ),
+                              ],
+                            ),
                           ),
                     ],
                   ),
