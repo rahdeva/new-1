@@ -43,28 +43,26 @@ class SekarMadiaPage extends StatelessWidget {
                             controller.dataListPitraYadnya.isEmpty
                           )
                           ? const EmptyListWidget()
-                          : SingleChildScrollView(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const SizedBox(height: 40),
-                                Container(
-                                  margin: const EdgeInsets.symmetric(horizontal: 24),
-                                  child: Text(
-                                    "Sekar Madia",
-                                    style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                                      fontSize: 30,
-                                      color: AppColors.black,
-                                      fontWeight: FontWeight.w700
-                                    ),
+                          : Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const SizedBox(height: 40),
+                              Container(
+                                margin: const EdgeInsets.symmetric(horizontal: 24),
+                                child: Text(
+                                  "Sekar Madia",
+                                  style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                                    fontSize: 30,
+                                    color: AppColors.black,
+                                    fontWeight: FontWeight.w700
                                   ),
                                 ),
-                                const SizedBox(height: 24),
-                                ListSekarMadiaBuilder(
-                                  controller: controller
-                                ),
-                              ],
-                            ),
+                              ),
+                              const SizedBox(height: 24),
+                              ListSekarMadiaBuilder(
+                                controller: controller
+                              ),
+                            ],
                           ),
                     ],
                   ),
