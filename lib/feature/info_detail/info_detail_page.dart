@@ -45,8 +45,36 @@ class InfoDetailPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      placeholder: (context, url) => const CircularProgressIndicator(),
-                      errorWidget: (context, url, error) => const Icon(Icons.error),
+                      placeholder: (context, url) => Container(
+                        width: Get.width,
+                        height: 200,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: AppColors.grey,
+                        ),
+                        child: const Center(
+                          child: Icon(
+                            Icons.image_outlined,
+                            size: 75,
+                            color: AppColors.grey,
+                          ),
+                        ),
+                      ),
+                      errorWidget: (context, url, error) => Container(
+                        width: Get.width,
+                        height: 200,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: AppColors.grey,
+                        ),
+                        child: const Center(
+                          child: Icon(
+                            Icons.image_outlined,
+                            size: 75,
+                            color: AppColors.black,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),
