@@ -16,14 +16,14 @@ class SekarRarePage extends StatelessWidget {
       child: Scaffold(
         body: GetBuilder<SekarRareController>(
           builder: (controller) {
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                const SizedBox(height: 20),
-                const BackButtonWidget(),
-                Expanded(
-                  child: Stack(
+            return SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  const SizedBox(height: 20),
+                  const BackButtonWidget(),
+                  Stack(
                     children: [
                       (controller.isLoading)
                         ? Column(
@@ -37,33 +37,31 @@ class SekarRarePage extends StatelessWidget {
                           )
                         : (controller.dataList.isEmpty)
                           ? const EmptyListWidget()
-                          : SingleChildScrollView(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const SizedBox(height: 40),
-                                Container(
-                                  margin: const EdgeInsets.symmetric(horizontal: 24),
-                                  child: Text(
-                                    "Sekar Rare",
-                                    style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                                      fontSize: 30,
-                                      color: AppColors.black,
-                                      fontWeight: FontWeight.w700
-                                    ),
+                          : Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const SizedBox(height: 40),
+                              Container(
+                                margin: const EdgeInsets.symmetric(horizontal: 24),
+                                child: Text(
+                                  "Sekar Rare",
+                                  style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                                    fontSize: 30,
+                                    color: AppColors.black,
+                                    fontWeight: FontWeight.w700
                                   ),
                                 ),
-                                const SizedBox(height: 24),
-                                ListSekarRareBuilder(
-                                  controller: controller
-                                ),
-                              ],
-                            ),
+                              ),
+                              const SizedBox(height: 24),
+                              ListSekarRareBuilder(
+                                controller: controller
+                              ),
+                            ],
                           ),
                     ],
                   ),
-                ),
-              ],
+                ],
+              ),
             );
           },
         ),
