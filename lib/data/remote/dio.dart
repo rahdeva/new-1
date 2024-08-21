@@ -7,8 +7,8 @@ import 'log_interceptor.dart';
 class AppDio {
   Future<Dio> getDIO({
     Map<String, dynamic> headers = const {},
-    int connectTimeout = 30000,
-    int receiveTimeout = 30000,
+    Duration connectTimeout = const Duration(seconds: 5),
+    Duration receiveTimeout = const Duration(seconds: 3),
   }) async {
     final _headers = Map<String, dynamic>.from(headers);
     final token = await SecureStorageManager().getToken() ?? "";
@@ -39,8 +39,8 @@ class AppDio {
 
   Future<Dio> getDIOFile({
     Map<String, dynamic> headers = const {},
-    int connectTimeout = 30000,
-    int receiveTimeout = 30000,
+    Duration connectTimeout = const Duration(seconds: 5),
+    Duration receiveTimeout = const Duration(seconds: 3),
   }) async {
     final _headers = Map<String, dynamic>.from(headers);
     final token = await SecureStorageManager().getToken() ?? "";
@@ -71,8 +71,8 @@ class AppDio {
 
   Future<Dio> getDIODownload({
     Map<String, dynamic> headers = const {},
-    int connectTimeout = 30000,
-    int receiveTimeout = 30000,
+    Duration connectTimeout = const Duration(seconds: 5),
+    Duration receiveTimeout = const Duration(seconds: 3),
   }) async {
     final _headers = Map<String, dynamic>.from(headers);
     final token = await SecureStorageManager().getToken() ?? "";

@@ -16,7 +16,6 @@ class InfoDetailPage extends StatelessWidget {
       child: Scaffold(
         body: GetBuilder<InfoDetailController>(
           builder: (controller) {
-            print(controller.songData?.image);
             return SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
