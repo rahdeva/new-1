@@ -91,7 +91,7 @@ class PlayerPage extends StatelessWidget {
                             Duration lyricDuration = controller.lyrics[index].timeStamp;
                             bool isLyricAfterCurrentTime = 
                               lyricDuration.inSeconds > controller.position.inSeconds;
-            
+                            
                             return Padding(
                               padding: const EdgeInsets.only(bottom: 16.0),
                               child: Text(
