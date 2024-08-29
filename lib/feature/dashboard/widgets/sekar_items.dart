@@ -10,11 +10,11 @@ class SekarListItem extends StatelessWidget {
   final Sekar mData;
 
   const SekarListItem({
-    Key? key, 
+    super.key, 
     required this.index, 
     required this.controller, 
     required this.mData,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

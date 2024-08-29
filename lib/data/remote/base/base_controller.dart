@@ -182,9 +182,9 @@ abstract class BaseController<T> extends GetxController {
                 color: Colors.white,
               ),
               padding: const EdgeInsets.all(32),
-              child: Column(
+              child: const Column(
                 mainAxisSize: MainAxisSize.min,
-                children: const [CircularProgressIndicator()],
+                children: [CircularProgressIndicator()],
               ),
             ),
           ),
