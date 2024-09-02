@@ -3,7 +3,7 @@ import 'package:shimmer/shimmer.dart';
 import 'package:sizer/sizer.dart';
 
 class ShimmerWidget extends StatelessWidget {
-  const ShimmerWidget({Key? key}) : super(key: key);
+  const ShimmerWidget({super.key});
 
   final Gradient gradient = const LinearGradient(
     begin: Alignment.topLeft,

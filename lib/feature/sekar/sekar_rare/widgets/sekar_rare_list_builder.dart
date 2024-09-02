@@ -6,9 +6,9 @@ import 'package:tembang_bali/resources/resources.dart';
 
 class ListSekarRareBuilder extends StatelessWidget {
   const ListSekarRareBuilder({
-    Key? key, 
+    super.key, 
     required this.controller, 
-  }) : super(key: key);
+  });
 
   final SekarRareController controller;
 

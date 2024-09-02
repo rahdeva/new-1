@@ -7,19 +7,19 @@ import '/resources/resources.dart';
 
 class LocaleHelper {
   final List<Map<String, dynamic>> locales = [
-    {'name': 'English', 'locale': Locale('en')},
-    {'name': 'Indonesia', 'locale': Locale('id')}
+    {'name': 'English', 'locale': const Locale('en')},
+    {'name': 'Indonesia', 'locale': const Locale('id')}
   ];
 
-  final fallbackLocale = Locale('en');
+  final fallbackLocale = const Locale('en');
 
   showLocaleDialog(BuildContext context) {
     showDialog(
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Text("Choose Language"),
-          content: Container(
+          title: const Text("Choose Language"),
+          content: SizedBox(
             width: double.maxFinite,
             child: ListView.separated(
                 shrinkWrap: true,
@@ -32,7 +32,7 @@ class LocaleHelper {
                       padding: EdgeInsets.all(10.sp),
                       child: Text(locales[index]['name'].toString()),
                     )),
-                separatorBuilder: (context, index) => Divider(
+                separatorBuilder: (context, index) => const Divider(
                       color: AppColors.black,
                     ),
                 itemCount: locales.length),
@@ -60,12 +60,12 @@ class LocaleHelper {
     var currentLocale = StorageManager().get(StorageName.CURRENT_LOCALE);
     if (currentLocale != null) {
       if (currentLocale == "en") {
-        return Locale('en');
+        return const Locale('en');
       } else {
-        return Locale('id');
+        return const Locale('id');
       }
     } else {
-      return Locale('en');
+      return const Locale('en');
     }
   }
 }

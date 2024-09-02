@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tembang_bali/data/remote/endpoint.dart';
 import 'package:tembang_bali/model/song.dart';
@@ -29,7 +30,7 @@ class SekarRareController extends GetxController {
       songResponse = SongResponse.fromJson(jsonResult);
       dataList = songResponse.items ?? [];
     } on Exception catch (error) {
-      print(error.toString());
+      debugPrint(error.toString());
     } 
     isLoading = false;
     update();

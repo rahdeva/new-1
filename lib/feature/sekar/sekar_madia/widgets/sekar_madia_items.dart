@@ -13,11 +13,11 @@ class SekarMadiaListItem extends StatelessWidget {
   final Song mData;
 
   const SekarMadiaListItem({
-    Key? key, 
+    super.key, 
     required this.index, 
     required this.controller, 
     required this.mData,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

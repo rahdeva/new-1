@@ -8,9 +8,9 @@ import 'package:tembang_bali/utills/widget/expansion_tile_widget.dart';
 
 class ListSekarMadiaBuilder extends StatelessWidget {
   const ListSekarMadiaBuilder({
-    Key? key, 
+    super.key, 
     required this.controller, 
-  }) : super(key: key);
+  });
 
   final SekarMadiaController controller;
 

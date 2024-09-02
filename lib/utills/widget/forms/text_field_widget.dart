@@ -5,7 +5,7 @@ import '/resources/resources.dart';
 
 class TextFieldWidget extends StatelessWidget {
   const TextFieldWidget({
-    Key? key,
+    super.key,
     required this.name,
     this.hintText,
     this.initialValue,
@@ -23,7 +23,7 @@ class TextFieldWidget extends StatelessWidget {
     this.contentPadding, 
     this.hintStyle, 
     this.inputFormatters, 
-  }) : super(key: key);
+  });
 
   final String name;
   final String? hintText;

@@ -36,10 +36,10 @@ class PrimaryButtonWidget extends StatelessWidget {
       margin: margin ?? const EdgeInsets.symmetric(horizontal: 16),
       child: ElevatedButton(
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all<Color>(
+          backgroundColor: WidgetStateProperty.all<Color>(
             customColors ?? AppColors.blue,
           ),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          shape: WidgetStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(borderRadius ?? 10),
             )
