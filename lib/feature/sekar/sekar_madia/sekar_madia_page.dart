@@ -7,7 +7,6 @@ import 'package:tembang_bali/utills/widget/empty_list_widget.dart';
 import 'package:tembang_bali/utills/widget/shimmer/shimmer_widget.dart';
 import '/resources/resources.dart';
 
-
 class SekarMadiaPage extends StatelessWidget {
   const SekarMadiaPage({super.key});
 
@@ -64,7 +63,7 @@ class SekarMadiaPage extends StatelessWidget {
                                 controller: controller
                               ),
                             ],
-                          ),
+                          ), 
                     ],
                   ),
                 ),
